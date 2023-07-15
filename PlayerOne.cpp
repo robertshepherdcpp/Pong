@@ -14,18 +14,25 @@ PlayerOne::PlayerOne()
 
 void PlayerOne::draw(sf::RenderWindow& window)
 {
+	window_size_x = window.getSize().x;
+	window_size_y = window.getSize().y;
 	window.draw(sprite);
 }
 
 void PlayerOne::MoveUp()
 {
-	current_y += 5;
+	if (current_y > 4)
+	{
+		current_y -= 5;
+		sprite.setPosition(current_x, current_y);
+	}
 }
 
 void PlayerOne::MoveDown()
 {
-	if (current_y > 4)
+	if (current_y < (window_size_y - sprite.getGlobalBounds().height))
 	{
-		current_y -= 5;
+		current_y += 5;
+		sprite.setPosition(current_x, current_y);
 	}
 }

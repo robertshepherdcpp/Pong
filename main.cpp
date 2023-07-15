@@ -41,6 +41,7 @@ int main()
         }
         window.clear();
         player_one.draw(window);
+        player_two.draw(window);
         window.display();
     }
 }
