@@ -2,6 +2,7 @@
 
 #include "PlayerOne.h"
 #include "PlayerTwo.h"
+#include "Ball.h"
 
 int main()
 {
@@ -9,6 +10,7 @@ int main()
 
     PlayerOne player_one;
     PlayerTwo player_two;
+    Ball ball;
 
     while (window.isOpen())
     {
@@ -39,9 +41,11 @@ int main()
                 }
             }
         }
+        ball.move(player_one, player_two);
         window.clear();
         player_one.draw(window);
         player_two.draw(window);
+        ball.draw(window);
         window.display();
     }
 }

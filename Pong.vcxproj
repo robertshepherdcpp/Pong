@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerOne.cpp" />
     <ClCompile Include="PlayerTwo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
     <ClInclude Include="PlayerOne.h" />
     <ClInclude Include="PlayerTwo.h" />
   </ItemGroup>
