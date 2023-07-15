@@ -43,9 +43,12 @@ int main()
         }
         ball.move(player_one, player_two);
         window.clear();
-        player_one.draw(window);
-        player_two.draw(window);
-        ball.draw(window);
+        if (!((ball.sprite.getPosition().x < 5) || (ball.sprite.getPosition().x > (window.getSize().x - ball.sprite.getGlobalBounds().width - 5))))
+        {
+            player_one.draw(window);
+            player_two.draw(window);
+            ball.draw(window);
+        }
         window.display();
     }
 }
