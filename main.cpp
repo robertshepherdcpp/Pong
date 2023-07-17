@@ -1,8 +1,11 @@
 #include<SFML/Graphics.hpp>
 
+#include<iostream>
+
 #include "PlayerOne.h"
 #include "PlayerTwo.h"
 #include "Ball.h"
+#include "Eatable.h"
 
 int main()
 {
@@ -12,6 +15,9 @@ int main()
     PlayerTwo player_two;
     Ball ball;
 
+    Eatable eatable_one(5);
+    Eatable eatable_two(170);
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -19,6 +25,7 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
+                std::cout << player_one.score << " - " << player_two.score;
                 window.close();
             }
             if (event.type == sf::Event::KeyPressed)
@@ -41,6 +48,18 @@ int main()
                 }
             }
         }
+
+        if (eatable_one.sprite.getGlobalBounds().intersects(player_one.sprite.getGlobalBounds()))
+        {
+            eatable_one.SetHasBeenEaten();
+            player_one.score += 1;
+        }
+        if (eatable_two.sprite.getGlobalBounds().intersects(player_two.sprite.getGlobalBounds()))
+        {
+            eatable_two.SetHasBeenEaten();
+            player_two.score += 1;
+        }
+
         ball.move(player_one, player_two);
         window.clear();
         if (!((ball.sprite.getPosition().x < 5) || (ball.sprite.getPosition().x > (window.getSize().x - ball.sprite.getGlobalBounds().width - 5))))
@@ -49,6 +68,8 @@ int main()
             player_two.draw(window);
             ball.draw(window);
         }
+        eatable_one.draw(window);
+        eatable_two.draw(window);
         window.display();
     }
 }

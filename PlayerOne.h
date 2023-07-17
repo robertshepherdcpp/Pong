@@ -17,6 +17,8 @@ struct PlayerOne
 	int window_size_x = 0;
 	int window_size_y = 0;
 
+	int score = 0;
+
 	static constexpr float current_x = 5.f;
 	float current_y = 60.f;
 };
