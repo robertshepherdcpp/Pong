@@ -9,7 +9,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(200, 200), "Pong");
 
     PlayerOne player_one;
     PlayerTwo player_two;
